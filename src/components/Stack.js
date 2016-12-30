@@ -1,4 +1,5 @@
 import React from 'react';
+import Service from './Service';
 
 export default class Stack extends React.Component {
 
@@ -8,6 +9,7 @@ export default class Stack extends React.Component {
     return (
       <div>
         <h1>Stack Component</h1>
+        < Service />
       </div>
     );
   }
