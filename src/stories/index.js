@@ -3,6 +3,7 @@ import { storiesOf, action, linkTo } from '@kadira/storybook';
 import ServiceCard from './ServiceCard';
 import Welcome from './Welcome';
 import Service from '../components/Service';
+import Stack from '../components/Stack';
 
 const CenterDecorator = (story) => (
   <div style={{ textAlign: "center" }}>
@@ -13,6 +14,11 @@ const CenterDecorator = (story) => (
 storiesOf('Service', module)
   .add('with Hover', () => (
     <Service />
+  ));
+
+storiesOf('Stack', module)
+  .add('with text', () => (
+    <Stack />
   ));
 
 storiesOf('Welcome', module)
