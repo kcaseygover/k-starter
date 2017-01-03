@@ -8,6 +8,7 @@ const stackContainerStyles = {
 const stackStyles = {
 margin: 10,
 padding: '15px',
+maxWidth: 400,
 };
 
 export default class Stack extends React.Component {
