@@ -2,6 +2,10 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import ServiceCard from './ServiceCard';
 import Welcome from './Welcome';
+
+import '../index.css';
+import App from '../App';
+
 import Service from '../components/Service';
 import Stack from '../components/Stack';
 
@@ -12,14 +16,19 @@ const CenterDecorator = (story) => (
 );
 
 storiesOf('Service', module)
-  .add('with Hover', () => (
+  .add('default view', () => (
     <Service />
   ));
 
-storiesOf('Stack', module)
-  .add('with text', () => (
-    <Stack />
-  ));
+// storiesOf('Stack', module)
+//   .add('default view', () => (
+//     <Stack />
+//   ));
+
+storiesOf('App', module)
+  .add('default view', () => (
+    <App />
+  ))
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
