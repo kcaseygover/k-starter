@@ -20,10 +20,10 @@ storiesOf('Service', module)
     <Service />
   ));
 
-// storiesOf('Stack', module)
-//   .add('default view', () => (
-//     <Stack />
-//   ));
+storiesOf('Stack', module)
+  .add('default view', () => (
+    <Stack />
+  ));
 
 storiesOf('App', module)
   .add('default view', () => (
