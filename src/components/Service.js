@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../logo.svg';
 // const Service = ({ children}) => (
 //   <div
 //   style={serviceStyles}
@@ -15,6 +16,8 @@ import React from 'react';
 // };
 
 // export default Service;
+// ///////
+
 const data = {
   serviceName: "Service Name",
   organizationName: "Organization Name",
@@ -26,11 +29,12 @@ const serviceStyles = {
   border: '1px solid #eee',
   borderRadius: 3,
   fontSize: 15,
-  padding: '15px',
+  padding: '10px',
   margin: '0px 0px 10px 10px',
   float: 'left',
   maxWidth: 400,
   maxHeight: 200,
+  display: 'flex',
 };
 
 const serviceDescriptStyles = {
@@ -40,17 +44,48 @@ const serviceDescriptStyles = {
   WebkitLineClamp: 3,
   WebkitBoxOrient: 'vertical',
 };
+const thumbnailStyles = {
+  background: '#eeeeee',
+  // borderRadius: '50%',
+  height: '100px',
+  width: '100px',
+  marginRight: '0px',
+  display: 'flex',
+};
+const serviceTextStyles = {
+  display: 'block',
+  float: 'right',
+  margin: '10px',
+  // marginBottom: '80px',
+};
+const colStyle = {
+  display: 'block',
+  float: 'left',
+};
+const priceStyle = {
+  textAlign: 'center',
+}
 
 export default class Service extends React.Component {
 
   render() {
 
-    console.log("this in Service:   ", this);
+    console.log("this.props in Service:   ", this.props);
     return (
       <div className="card" style={serviceStyles} >
-        <h2>{data.serviceName}</h2>
-        <h5>by <a href="data.organizationName">{data.organizationName}</a></h5>
-        <p className="service-describe" style={serviceDescriptStyles}>{data.description}</p>
+        <div style={colStyle}>
+          <img src={logo} style={thumbnailStyles} className="thumbnail-stack"/>
+          <br/>
+          <div style={priceStyle}>{data.price}</div>
+        </div>
+
+        <div style={serviceTextStyles}>
+          <div>{data.serviceName}</div>
+          <div> by <a href="data.organizationName"> {data.organizationName}</a></div>
+          <br/>
+          <div className="service-describe" style={serviceDescriptStyles}>{data.description}</div>
+        </div>
+
       </div>
     );
   }
