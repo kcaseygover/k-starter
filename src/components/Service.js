@@ -25,46 +25,46 @@ const data = {
   price: "$0-500/mo",
 };
 
-const serviceStyles = {
-  border: '1px solid #eee',
-  borderRadius: 3,
-  fontSize: 15,
-  padding: '10px',
-  margin: '0px 0px 10px 10px',
-  float: 'left',
-  maxWidth: 400,
-  maxHeight: 200,
-  display: 'flex',
+const styles = {
+    card: {
+    border: '1px solid #eee',
+    borderRadius: 3,
+    fontSize: 15,
+    padding: '10px',
+    margin: '0px 0px 10px 10px',
+    float: 'left',
+    maxWidth: 400,
+    maxHeight: 200,
+    display: 'flex',
+  },
+  description: {
+    height: '3.5em',
+    overflow: 'hidden',
+    display: '-webkit-box',
+    WebkitLineClamp: 3,
+    WebkitBoxOrient: 'vertical',
+  },
+  thumbnail: {
+    background: '#eeeeee',
+    borderRadius: 3,
+    height: '100px',
+    width: '100px',
+    marginRight: '0px',
+    display: 'flex',
+  },
+  rightColumn: {
+    display: 'block',
+    float: 'right',
+    padding: '10px',
+  },
+  leftColumn: {
+    display: 'block',
+    float: 'left',
+  },
+  price: {
+    textAlign: 'center',
+  },
 };
-
-const serviceDescriptStyles = {
-  height: '3.5em',
-  overflow: 'hidden',
-  display: '-webkit-box',
-  WebkitLineClamp: 3,
-  WebkitBoxOrient: 'vertical',
-};
-const thumbnailStyles = {
-  background: '#eeeeee',
-  // borderRadius: '50%',
-  height: '100px',
-  width: '100px',
-  marginRight: '0px',
-  display: 'flex',
-};
-const serviceTextStyles = {
-  display: 'block',
-  float: 'right',
-  margin: '10px',
-  // marginBottom: '80px',
-};
-const colStyle = {
-  display: 'block',
-  float: 'left',
-};
-const priceStyle = {
-  textAlign: 'center',
-}
 
 export default class Service extends React.Component {
 
@@ -72,18 +72,18 @@ export default class Service extends React.Component {
 
     console.log("this.props in Service:   ", this.props);
     return (
-      <div className="card" style={serviceStyles} >
-        <div style={colStyle}>
-          <img src={logo} style={thumbnailStyles} className="thumbnail-stack"/>
+      <div className="card" style={styles.card} >
+        <div style={styles.leftColumn}>
+          <img src={logo} style={styles.thumbnail} className="thumbnail-stack"/>
           <br/>
-          <div style={priceStyle}>{data.price}</div>
+          <div style={styles.price}>{data.price}</div>
         </div>
 
-        <div style={serviceTextStyles}>
+        <div style={styles.rightColumn}>
           <div>{data.serviceName}</div>
           <div> by <a href="data.organizationName"> {data.organizationName}</a></div>
           <br/>
-          <div className="service-describe" style={serviceDescriptStyles}>{data.description}</div>
+          <div className="service-describe" style={styles.description}>{data.description}</div>
         </div>
 
       </div>

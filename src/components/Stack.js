@@ -9,27 +9,27 @@ const data = {
   stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
 };
 
-const stackContainerStyles = {
-  display: 'flex',
-};
-
-const stackStyles = {
-margin: 10,
-padding: '15px',
-maxWidth: 500,
-};
-
-const thumbnailStyles = {
-  background: '#eeeeee',
-  borderRadius: '50%',
-  height: '100px',
-  width: '100px',
-  marginRight: '50px',
-};
-
-const stackHeaderStyles = {
-  display: 'flex',
-  marginBottom: '80px',
+const styles = {
+  container: {
+    display: 'flex',
+    margin: '40px',
+  },
+  stackDiv: {
+    margin: 10,
+    padding: '15px',
+    maxWidth: 500,
+  },
+  thumbnail: {
+    background: '#eeeeee',
+    borderRadius: '50%',
+    height: '100px',
+    width: '100px',
+    marginRight: '30px',
+  },
+  stackHeader: {
+    display: 'flex',
+    marginBottom: '50px',
+  },
 };
 
 export default class Stack extends React.Component {
@@ -38,10 +38,10 @@ export default class Stack extends React.Component {
 
     console.log("this in Stack:   ", this);
     return (
-      <section className="stack-container row" style={stackContainerStyles}>
-        <div className="stack" style={stackStyles} >
-          <div className="stack-header" style={stackHeaderStyles}>
-            <img src={logo} style={thumbnailStyles} className="thumbnail-stack" />
+      <section className="stack-container row" style={styles.container}>
+        <div className="stack" style={styles.stackDiv} >
+          <div className="stack-header" style={styles.stackHeader}>
+            <img src={logo} style={styles.thumbnail} className="thumbnail-stack" />
             <h1>{data.stackName}</h1>
             <FontAwesome
               className='super-crazy-colors'
