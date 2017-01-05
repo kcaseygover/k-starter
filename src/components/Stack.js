@@ -38,23 +38,20 @@ export default class Stack extends React.Component {
 
     console.log("this in Stack:   ", this);
     return (
-      <section className="stack-container row" style={styles.container}>
-        <div className="stack" style={styles.stackDiv} >
-          <div className="stack-header" style={styles.stackHeader}>
-            <img src={logo} style={styles.thumbnail} className="thumbnail-stack" />
-            <h1>{data.stackName}</h1>
-            <FontAwesome
-              className='super-crazy-colors'
-              name='rocket'
-              size='2x'
-              spin
-              style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
-            />
-          </div>
-          <p className="stack-describe">{data.stackDescription}</p>
+      <div className="stack" style={styles.stackDiv} >
+        <div className="stack-header" style={styles.stackHeader}>
+          <img src={logo} style={styles.thumbnail} className="thumbnail-stack" />
+          <h1>{data.stackName}</h1>
+          <FontAwesome
+            className='super-crazy-colors'
+            name='rocket'
+            size='2x'
+            spin
+            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+          />
         </div>
-        < StackService />
-      </section>
+        <p className="stack-describe">{data.stackDescription}</p>
+      </div>
     );
   }
 }

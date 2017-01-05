@@ -8,6 +8,8 @@ import App from '../App';
 
 import Service from '../components/Service';
 import Stack from '../components/Stack';
+import StackService from '../components/StackService';
+import StackContainer from '../components/StackContainer';
 
 const CenterDecorator = (story) => (
   <div style={{ textAlign: "center" }}>
@@ -23,6 +25,16 @@ storiesOf('Service', module)
 storiesOf('Stack', module)
   .add('default view', () => (
     <Stack />
+  ));
+
+storiesOf('StackService', module)
+  .add('default view', () => (
+    <StackService />
+  ));
+
+storiesOf('StackContainer', module)
+  .add('default view', () => (
+    <StackContainer />
   ));
 
 storiesOf('App', module)
