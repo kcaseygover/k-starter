@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from '../logo.svg';
+
+import Service from './Service';
 // const Service = ({ children}) => (
 //   <div
 //   style={serviceStyles}
@@ -66,28 +68,19 @@ const styles = {
   },
 };
 
-export default class Service extends React.Component {
+const HoverCard = ({ onMouseOver }) => (
+  <div
 
-  render() {
+    onMouseOver={onMouseOver}
+  >
+    <Service/>
+  </div>
+);
 
-    console.log("this.props in Service:   ", this.props);
-    return (
-      <div className="card" style={styles.card} >
-        <div style={styles.leftColumn}>
-          <img src={logo} style={styles.thumbnail} className="thumbnail-stack"/>
-          <br/>
-          <div style={styles.price}>{data.price}</div>
-        </div>
+HoverCard.propTypes = {
 
-        <div style={styles.rightColumn}>
-          <div>{data.serviceName}</div>
-          <div> by <a href="data.organizationName"> {data.organizationName}</a></div>
-          <br/>
-          <div className="service-describe" style={styles.description}>{data.description}</div>
-        </div>
+  onMouseOver: React.PropTypes.func,
+};
 
-      </div>
-    );
-  }
-}
+export default HoverCard;
 

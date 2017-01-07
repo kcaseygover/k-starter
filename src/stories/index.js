@@ -10,6 +10,7 @@ import Service from '../components/Service';
 import Stack from '../components/Stack';
 import StackService from '../components/StackService';
 import StackContainer from '../components/StackContainer';
+import HoverService from '../components/HoverService';
 
 const CenterDecorator = (story) => (
   <div style={{ textAlign: "center" }}>
@@ -20,6 +21,9 @@ const CenterDecorator = (story) => (
 storiesOf('Service', module)
   .add('default view', () => (
     <Service />
+  ))
+  .add('hover', () => (
+      <HoverService onMouseOver={action('hover')} ></HoverService>
   ));
 
 storiesOf('Stack', module)
@@ -37,21 +41,33 @@ storiesOf('StackContainer', module)
     <StackContainer />
   ));
 
-storiesOf('App', module)
-  .add('default view', () => (
-    <App />
-  ))
+// storiesOf('App', module)
+//   .add('default view', () => (
+//     <App />
+//   ))
 
-storiesOf('Welcome', module)
-  .add('to Storybook', () => (
-    <Welcome showApp={linkTo('Button')}/>
-  ));
+// storiesOf('Welcome', module)
+//   .add('to Storybook', () => (
+//     <Welcome showApp={linkTo('Button')}/>
+//   ));
+
 
 storiesOf('Service Card', module)
   .addDecorator(CenterDecorator)
   .add('with text', () => (
-    <ServiceCard onClick={action('clicked')}>Hello Button</ServiceCard>
+    <ServiceCard onMouseOver={action('hover')}>Hello Button</ServiceCard>
   ))
   .add('with some emoji', () => (
     <ServiceCard onClick={action('clicked')}>😀 😎 👍 💯</ServiceCard>
-  ));
+  ))
+  .add('hover', () => {
+    const style = {
+      fontSize: 20,
+      textTransform: 'uppercase',
+      color: '#FF8833',
+    };
+    return (
+      <ServiceCard onMouseOver={action('hover')} style={style}>button</ServiceCard>
+    )
+  });
+

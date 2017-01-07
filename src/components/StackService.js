@@ -1,5 +1,6 @@
 import React from 'react';
 import Service from './Service';
+import HoverService from './HoverService';
 
 const styles = {
   stackService: {
@@ -19,9 +20,8 @@ export default class StackService extends React.Component {
     return (
       <div className="stack-services" style={styles.stackService}>
         <Service/>
-        <Service/>
-        <Service/>
-        <Service/>
+        <HoverService/>
+
       </div>
     );
   }

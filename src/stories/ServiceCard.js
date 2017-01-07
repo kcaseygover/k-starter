@@ -8,12 +8,17 @@ const serviceCardStyles = {
   fontSize: 15,
   padding: '3px 10px',
   margin: 10,
+
+  // transform: 'scale (2,3)',
+};
+const sHover = {
+  color: 'red',
 };
 
-const ServiceCard = ({ children, onClick }) => (
+const ServiceCard = ({ children, onMouseOver }) => (
   <button
     style={serviceCardStyles}
-    onClick={onClick}
+    onMouseOver={onMouseOver}
   >
     {children}
   </button>
@@ -21,7 +26,7 @@ const ServiceCard = ({ children, onClick }) => (
 
 ServiceCard.propTypes = {
   children: React.PropTypes.string.isRequired,
-  onClick: React.PropTypes.func,
+  onMouseOver: React.PropTypes.func,
 };
 
 export default ServiceCard;

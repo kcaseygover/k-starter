@@ -21,7 +21,7 @@ export default class StackContainer extends React.Component {
 
   render() {
 
-    console.log("this in StackContainer:   ", this);
+    console.log("this.state in StackContainer:   ", this);
     return (
       <section className="stack-container row" style={styles.container}>
         <Stack />
@@ -30,3 +30,4 @@ export default class StackContainer extends React.Component {
     );
   }
 }
+
