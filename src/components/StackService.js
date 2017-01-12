@@ -12,17 +12,15 @@ const styles = {
   },
 };
 
-export default class StackService extends React.Component {
+const StackService = (props) => {
+    console.log("props.services in StackService:   ", props.services)
+  return(
+    <div style={styles.stackService}>
+      <Service/>
+      <HoverService
 
-  render() {
-
-    console.log("this in StackService:   ", this);
-    return (
-      <div className="stack-services" style={styles.stackService}>
-        <Service/>
-        <HoverService/>
-
-      </div>
-    );
-  }
+        />
+    </div>
+  )
 }
+export default StackService;

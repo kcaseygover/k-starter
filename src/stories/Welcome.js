@@ -50,7 +50,7 @@ storiesOf('App', module)
 
 export default class Welcome extends React.Component {
   showApp(e) {
-    e.preventDefault();
+   e.preventDefault();
     if(this.props.showApp) this.props.showApp();
   }
 
@@ -61,6 +61,7 @@ export default class Welcome extends React.Component {
         <p>
           This is a UI component dev environment for your app.
         </p>
+        <p className="fa fa-picture-o" >p</p>
         <p>
           We've added some basic stories inside the <code style={styles.code}>src/stories</code> directory.
           <br/>

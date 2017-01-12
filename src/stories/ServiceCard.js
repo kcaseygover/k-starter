@@ -9,15 +9,30 @@ const serviceCardStyles = {
   padding: '3px 10px',
   margin: 10,
 
-  // transform: 'scale (2,3)',
+  // transform: 'scale (,)',
 };
-const sHover = {
-  color: 'red',
-};
+// const sHover = {
+//   backgroundColor: 'red',
+// };
+
+// const ServiceCard = ({children}) => {
+//         function over(e){
+//             e.target.style.backgroundColor='red';
+//         }
+//         function out(e){
+//             e.target.style.backgroundColor='';
+//         }
+
+//         return <button style={serviceCardStyles }
+//onMouseOver={over} onMouseOut={out}>
+//{children} </button>;
+//       }
+
+
 
 const ServiceCard = ({ children, onMouseOver }) => (
   <button
-    style={serviceCardStyles}
+    style={serviceCardStyles }
     onMouseOver={onMouseOver}
   >
     {children}
@@ -25,7 +40,7 @@ const ServiceCard = ({ children, onMouseOver }) => (
 );
 
 ServiceCard.propTypes = {
-  children: React.PropTypes.string.isRequired,
+  children: React.PropTypes.array,
   onMouseOver: React.PropTypes.func,
 };
 
