@@ -1,7 +1,5 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
-import ServiceCard from './ServiceCard';
-import Welcome from './Welcome';
 
 import '../index.css';
 import App from '../App';
@@ -71,12 +69,4 @@ storiesOf('StackContainer', module)
   ));
 
 
-// storiesOf('Service Card', module)
-
-//   .add('with text', () => (
-//     <ServiceCard onMouseOver={action('hover')}><p>Hello Button</p><p>2nd paragraph</p></ServiceCard>
-//   ))
-//   .add('hover', () => (
-//       <ServiceCard onMouseOver={action('hover')}>button</ServiceCard>
-//   ));
 
