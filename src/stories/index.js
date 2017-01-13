@@ -10,7 +10,7 @@ import StackContainer from '../components/StackContainer';
 import HoverService from '../components/HoverService';
 import StyleHover from '../components/StyleHover';
 
-//mock data
+//data to be fed to main container (StackContainer)
 const mockData = {
   services:  [{
     serviceName: "Service Name",
@@ -30,18 +30,66 @@ const mockData = {
     trending: "false",
   },
 };
-
+//stories for individual service cards
 storiesOf('Service', module)
-  .add('default view', () => (
-    <Service />
-  ))
-  .add('hover activated', () => (
-    <HoverService onMouseOver={action('hover')} onMouseOut={action('exit card')} />
-  ))
-  .add('hover style', () => (
-      <StyleHover />
-  ));
+  .add('single service card default view', () => {
+    const data = {
+    serviceName: "Service Name",
+    organizationName: "Organization Name",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
+    price: "$0-500/mo",
+    };
+    return getItem(data);
+  })
+  .add('single service card with hover activated', () => {
+    const data = {
+    serviceName: "Service Name",
+    organizationName: "Organization Name",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
+    price: "$0-500/mo",
+    };
+    return getHover(data);
+  })
+  .add('single service card in hover style', () => {
+    const data = {
+    serviceName: "Service Name",
+    organizationName: "Organization Name",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
+    price: "$0-500/mo",
+    };
+//below added style not working as is...
+//Need to move down and to the right to see whole card while in this story.
+    const style = {
+      top: '50px',
+      left: '50px',
+    };
+    return getHoverStyle(data, style);
+  });
 
+function getItem(data) {
+  return (
+    <Service
+    service={data}
+    />
+  )
+}
+function getHover(data) {
+  return (
+    <HoverService
+    service={data}
+    onMouseOver={action('hover')}
+    onMouseOut={action('exit card')}
+    />
+  )
+}
+function getHoverStyle(data, style) {
+  return (
+    <StyleHover
+    style={style}
+    service={data}
+    />
+  )
+}
 
 storiesOf('Stack', module)
   .add('default view', () => (

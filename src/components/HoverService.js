@@ -3,13 +3,6 @@ import logo from '../logo.svg';
 import Service from './Service';
 import StyleHover from './StyleHover';
 
-const data = {
-  serviceName: "Service Name",
-  organizationName: "Organization Name",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-  price: "$0-500/mo",
-};
-
 const styles = {
     card: {
     position: 'relative',
@@ -108,6 +101,7 @@ export default class HoverService extends React.Component {
     }
 
     console.log("in HoverService:   ");
+        console.log("this.props.service in HoverService:   ", this.props.service);
     return(
       <div style={styles.card}
       onMouseOver={this.onMouseOver.bind(this)}
@@ -117,15 +111,15 @@ export default class HoverService extends React.Component {
         <div style={styles.leftColumn}>
           <img src={logo} style={styles.thumbnail}/>
           <br/>
-          <div style={styles.price}>{data.price}</div>
+          <div style={styles.price}>{this.props.service.price}</div>
         </div>
 
         <div style={styles.rightColumn}>
-          <div>{data.serviceName}</div>
-          <div> by <a href="data.organizationName"> {data.organizationName}</a></div>
+          <div>{this.props.service.serviceName}</div>
+          <div> by <a href="this.props.service.organizationName"> {this.props.service.organizationName}</a></div>
 
           <br/>
-          <div style={styles.description}>{data.description}
+          <div style={styles.description}>{this.props.service.description}
             <button style={styles.button}>Provision Service</button>
           </div>
 

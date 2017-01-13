@@ -5,6 +5,7 @@ import logo from '../logo.svg';
 //styles for when card is in hover state:
   //(card and description are amended from original state)
 
+//styles for when hover activated
 const stylesHover = {
     card: {
     zIndex: 10,
@@ -57,38 +58,35 @@ const stylesHover = {
     marginTop: 15,
   },
 };
-const data = {
-  serviceName: "Service Name",
-  organizationName: "Organization Name",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. ",
-  price: "$0-500/mo",
-};
+export default class StyleHover extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-const StyleHover = (props) => {
-  console.log("props in StyleHover:   ", props)
+  render() {
+    console.log("this.props.service in StyleHover:   ", this.props.service)
 
-  return(
-    <div style={stylesHover.card} >
-      <div style={stylesHover.leftColumn}>
-        <img src={logo} style={stylesHover.thumbnail}/>
-        <br/>
-        <div style={stylesHover.price}>{data.price}</div>
-      </div>
+    return(
+      <div style={stylesHover.card} >
+        <div style={stylesHover.leftColumn}>
+          <img src={logo} style={stylesHover.thumbnail}/>
+          <br/>
+          <div style={stylesHover.price}>{this.props.service.price}</div>
+        </div>
 
-      <div style={stylesHover.rightColumn}>
-        <div>{data.serviceName}</div>
-        <div> by <a href="data.organizationName"> {data.organizationName}</a></div>
-        <br/>
-        <div style={stylesHover.description}>{data.description}
-        <br/>
-          <button style={stylesHover.button}>Provision Service</button>
+        <div style={stylesHover.rightColumn}>
+          <div>{this.props.service.serviceName}</div>
+          <div> by <a href="{this.props.service.organizationName}"> {this.props.service.organizationName}</a></div>
+          <br/>
+          <div style={stylesHover.description}>{this.props.service.description}
+          <br/>
+            <button style={stylesHover.button}>Provision Service</button>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 };
-
-export default StyleHover;
 
 
 
