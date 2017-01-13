@@ -44,27 +44,31 @@ export default class Stack extends React.Component {
 
   render() {
     //if the stack is trending (trending = true), the stacked will be marked as trending.
-    let isTrending = null;
-    if (this.props.trending) {
+    let isTrending;
+    if (this.props.stack.trending) {
       isTrending = (
         <p style={trendingStyle}>TRENDING</p>
+        )
+    } else {
+      isTrending = (
+        <p></p>
         )
     }
 
     console.log("this is Stack", this)
-    console.log("this.props.stackName in Stack:   ", this.props.stackName  );
-    console.log("this.props.trending", this.props.trending)
+    console.log("this.props.stack in Stack:   ", this.props.stack  );
+    console.log("this.props.stack.trending", this.props.stack.trending)
 
     return (
       <div style={styles.stackDiv} >
         <div style={styles.stackHeader}>
           <img src={logo} style={styles.thumbnail}  />
           <div>
-          <h1>{this.props.stackName}</h1>
+          <h1>{this.props.stack.stackName}</h1>
             {isTrending}
           </div>
         </div>
-        <p>{this.props.stackDescription}</p>
+        <p>{this.props.stack.stackDescription}</p>
       </div>
     );
   }

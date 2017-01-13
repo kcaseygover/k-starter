@@ -14,7 +14,6 @@ const styles = {
   },
 };
 
-
 export default class StackContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -28,9 +27,7 @@ export default class StackContainer extends React.Component {
     return (
       <section style={styles.container}>
         <Stack
-        stackName={this.props.data.stack.stackName}
-        stackDescription={this.props.data.stack.stackDescription}
-        trending={this.props.data.stack.trending}
+        stack={this.props.data.stack}
         />
         <StackService
         services={this.props.data.services}/>

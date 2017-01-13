@@ -61,50 +61,64 @@ storiesOf('Service', module)
     return getHoverStyle(data);
   });
 
-function getItem(data) {
-  return (
-    <Service
-    service={data}
-    />
-  )
-}
-function getHover(data) {
-  return (
-    <HoverService
-    service={data}
-    onMouseOver={action('hover')}
-    onMouseOut={action('exit card')}
-    />
-  )
-}
-function getHoverStyle(data) {
-  return (
-    <StyleHover
-    service={data}
-    />
-  )
-}
+  function getItem(data) {
+    return (
+      <Service
+      service={data}
+      />
+    )
+  };
+
+  function getHover(data) {
+    return (
+      <HoverService
+      service={data}
+      onMouseOver={action('hover')}
+      onMouseOut={action('exit card')}
+      />
+    )
+  };
+
+  function getHoverStyle(data) {
+    return (
+      <StyleHover
+      service={data}
+      />
+    )
+  };
 
 storiesOf('Stack', module)
-  .add('default view', () => (
-    <Stack />
-  ))
-  .add('with trending', () => (
-    <Stack/>
-  ));
+  .add('default view', () => {
+    const data = {
+      stackName: "Stack Name",
+      stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
+      trending: "false",
+    };
+    return getStack(data);
+  })
+  .add('with trending', () => {
+    const data = {
+      stackName: "Stack Name",
+      stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
+      trending: "true",
+    };
+    return getStack(data);
+  });
 
-storiesOf('StackService', module)
-  .add('default view', () => (
-    <StackService />
-  ));
-
+  function getStack(data) {
+    return (
+      <Stack
+      stack={data}
+      />
+    )
+  };
 
 
 storiesOf('StackContainer', module)
-  .add('2 cards with hover & 2 cards without', () => (
+  .add('2 cards with hover & 2 cards without hover', () => (
     <StackContainer data={mockData} />
   ))
-  .add('Trending Stack with 2 cards with hover & 2 cards without', () => (
+  .add('Trending Stack with 2 cards with hover & 2 cards without hover', () => (
     <StackContainer data={mockData} />
   ));
 
