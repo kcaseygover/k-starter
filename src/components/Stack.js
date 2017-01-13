@@ -2,12 +2,6 @@ import React from 'react';
 import Trend from './Trend';
 import logo from '../logo.svg';
 
-const data = {
-  stackName: "Stack Name",
-  stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-  trending: "true",
-};
-
 const styles = {
   container: {
     display: 'flex',
@@ -43,33 +37,41 @@ const trendingStyle = {
 }
 
 let isTrending = "TRENDING";
-if (data.trending == false){
-  isTrending = "";
-}
+export default class Stack extends React.Component {
+  constructor(props) {
+    super(props);
+  };
 
 
-const Stack = (props) => {
-    console.log("props in Stack:   ", props);
-    console.log("this in Stack:   ", this);
+  render() {
+
+    let trending = this.props.trending;
+    if (this.props.trending == false){
+      isTrending = "";
+    }
+    console.log("this is Stack", this)
+
+    console.log("this.props.stackName in Stack:   ", this.props.stackName  );
+    console.log("props in Stack:   ");
     // console.log("this props name", this.props.name);
-console.log("data.trending", data.trending)
-
+    console.log("this.props.trending", this.props.trending)
 
     return (
       <div style={styles.stackDiv} >
         <div style={styles.stackHeader}>
           <img src={logo} style={styles.thumbnail}  />
           <div>
-          <h1>{data.stackName}</h1>
+          <h1>{this.props.stackName}</h1>
           <p style={trendingStyle}>{isTrending}</p>
           </div>
         </div>
-        <p>{data.stackDescription}</p>
+        <p>{this.props.stackDescription}</p>
       </div>
     );
+  }
 }
 
 Stack.propTypes = {
   props: React.PropTypes.object,
 };
-export default Stack;
+

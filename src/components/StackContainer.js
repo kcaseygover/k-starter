@@ -15,16 +15,21 @@ const styles = {
 export default class StackContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {this}
+
   }
 
   render() {
-    console.log("this.props.thing in container: ", this.props.thing)
-    console.log("this.state in StackContainer:   ", this);
+    console.log("this.props.data.services in container: ", this.props.data.services)
+    console.log("this in StackContainer:   ", this);
     return (
       <section style={styles.container}>
-        <Stack    />
-        <StackService services= {this.props.services}/>
+        <Stack
+        stackName={this.props.data.stack.stackName}
+        stackDescription={this.props.data.stack.stackDescription}
+        trending={this.props.data.stack.trending}
+        />
+        <StackService
+        services={this.props.data.services}/>
       </section>
     );
   }

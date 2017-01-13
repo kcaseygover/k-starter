@@ -77,35 +77,38 @@ const styles = {
 
 
 
-const Service = (props, onMouseOver, onMouseOut) => {
+// const Service = (props, onMouseOver, onMouseOut) => {
+export default class Service extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
+  render() {
 
-  console.log("props in Service:   ", props);
-return(
-  <div style={styles.card} >
-    <div style={styles.leftColumn}>
-      <img src={logo} style={styles.thumbnail}/>
-      <br/>
-      <div style={styles.price}>{services.price}</div>
-    </div>
-
-    <div style={styles.rightColumn}>
-      <div>{services.serviceName}</div>
-      <div> by <a href="services.organizationName"> {services.organizationName}</a></div>
-
-      <br/>
-      <div style={styles.description}>{services.description}
-        <button style={styles.button}>Provision Service</button>
+    console.log("this.props in Service:   ", this.props);
+    return(
+      <div style={styles.card} >
+        <div style={styles.leftColumn}>
+          <img src={logo} style={styles.thumbnail}/>
+          <br/>
+          <div style={styles.price}>{services.price}</div>
+        </div>
+        <div style={styles.rightColumn}>
+          <div>{services.serviceName}</div>
+          <div> by <a href="services.organizationName"> {services.organizationName}</a></div>
+          <br/>
+          <div style={styles.description}>{services.description}
+            <button style={styles.button}>Provision Service</button>
+          </div>
+        </div>
       </div>
-    </div>
-
-  </div>
-  )
+    )
+  }
 };
 
 Service.propTypes = {
   // children: React.PropTypes.string,
   onMouseOver: React.PropTypes.func,
 };
-export default Service;
+
 

@@ -12,15 +12,28 @@ const styles = {
   },
 };
 
-const StackService = (props) => {
-    console.log("props.services in StackService:   ", props.services)
-  return(
-    <div style={styles.stackService}>
-      <Service/>
-      <HoverService
+export default class StackService extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-        />
-    </div>
-  )
+  render() {
+    console.log("this.props.services in StackService:   ", this.props.services.length)
+    return(
+      <div style={styles.stackService}>
+        {this.props.services.map((e) =>{
+          return (
+            <Service
+              key={e.id}
+              service={e}
+            />
+          )
+        })}
+
+        <HoverService/>
+        <HoverService/>
+      </div>
+    )
 }
-export default StackService;
+}
+
