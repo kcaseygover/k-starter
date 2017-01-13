@@ -3,6 +3,7 @@ import logo from '../logo.svg';
 import Service from './Service';
 import StyleHover from './StyleHover';
 
+//default Service card styles.
 const styles = {
     card: {
     position: 'relative',
@@ -53,6 +54,8 @@ const styles = {
     marginTop: 15,
   },
 };
+
+//service card styles when hover activated.
 const stylesHover = {
     card: {
       zIndex: 10,
@@ -81,13 +84,15 @@ const stylesHover = {
 export default class HoverService extends React.Component {
   constructor(props) {
     super(props);
+
+    //initial state of component
     this.state = {hover: false};
   };
-
+    //state changes when mouse hovers over a service card
   onMouseOver() {
     this.setState({hover: true})
   };
-
+    //state changes back to intial state when mouse no longer hovering over service card
   onMouseOut() {
     this.setState({hover: false})
   };
@@ -95,6 +100,7 @@ export default class HoverService extends React.Component {
   render() {
     console.log("this is HoverService", this)
     let popup = null;
+    //if mouse is hovering over a service card, style of card will change to variable "popup"
     if (this.state.hover == true) {
       popup = (
         <div style={stylesHover.card} >
@@ -121,7 +127,7 @@ export default class HoverService extends React.Component {
     console.log("this.props.service in HoverService:   ", this.props.service);
     return(
       <div style={styles.card}
-      onMouseOver={this.onMouseOver.bind(this)}
+        onMouseOver={this.onMouseOver.bind(this)}
         onMouseOut={this.onMouseOut.bind(this)}
       >
         {popup}
