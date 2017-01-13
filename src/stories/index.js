@@ -27,7 +27,7 @@ const mockData = {
   stack: {
     stackName: "Stack Name",
     stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-    trending: "false",
+    trending: true,
   },
 };
 //stories for individual service cards
@@ -92,7 +92,7 @@ storiesOf('Stack', module)
     const data = {
       stackName: "Stack Name",
       stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-      trending: "false",
+      trending: false,
     };
     return getStack(data);
   })
@@ -100,7 +100,7 @@ storiesOf('Stack', module)
     const data = {
       stackName: "Stack Name",
       stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-      trending: "true",
+      trending: true,
     };
     return getStack(data);
   });
@@ -113,11 +113,7 @@ storiesOf('Stack', module)
     )
   };
 
-
 storiesOf('StackContainer', module)
-  .add('2 cards with hover & 2 cards without hover', () => (
-    <StackContainer data={mockData} />
-  ))
   .add('Trending Stack with 2 cards with hover & 2 cards without hover', () => (
     <StackContainer data={mockData} />
   ));
