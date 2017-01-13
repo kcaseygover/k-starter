@@ -36,19 +36,20 @@ const trendingStyle = {
 
 }
 
-let isTrending = "TRENDING";
+
 export default class Stack extends React.Component {
   constructor(props) {
     super(props);
   };
 
-
   render() {
-
-    let trending = this.props.trending;
-    if (this.props.trending == false){
-      isTrending = "";
+    let isTrending = null;
+    if (this.props.trending) {
+      isTrending = (
+        <p style={trendingStyle}>TRENDING</p>
+        )
     }
+
     console.log("this is Stack", this)
 
     console.log("this.props.stackName in Stack:   ", this.props.stackName  );
@@ -62,7 +63,7 @@ export default class Stack extends React.Component {
           <img src={logo} style={styles.thumbnail}  />
           <div>
           <h1>{this.props.stackName}</h1>
-          <p style={trendingStyle}>{isTrending}</p>
+            {isTrending}
           </div>
         </div>
         <p>{this.props.stackDescription}</p>
@@ -73,5 +74,6 @@ export default class Stack extends React.Component {
 
 Stack.propTypes = {
   props: React.PropTypes.object,
+  children: React.PropTypes.string,
 };
 

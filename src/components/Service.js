@@ -1,28 +1,5 @@
 import React from 'react';
 import logo from '../logo.svg';
-// const Service = ({ children}) => (
-//   <div
-//   style={serviceStyles}
-//   >
-//   {children}
-//   <p className="service-describe" style={serviceDescriptStyles}>
-// Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.
-//   </p>
-//   </div>
-// );
-
-// Service.propTypes = {
-//   children: React.PropTypes.string.isRequired,
-// };
-
-// export default Service;
-// ///////
-const services = {
-      serviceName: "Service Name",
-      organizationName: "Organization Name",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-      price: "$0-500/mo",
-    }
 
 const styles = {
     card: {
@@ -71,13 +48,12 @@ const styles = {
     height: 50,
     fontSize: 16,
     marginTop: 15,
-    // visibility: 'hidden',
   },
 };
 
 
 
-// const Service = (props, onMouseOver, onMouseOut) => {
+
 export default class Service extends React.Component {
   constructor(props) {
     super(props);
@@ -85,19 +61,19 @@ export default class Service extends React.Component {
 
   render() {
 
-    console.log("this.props in Service:   ", this.props);
+    console.log("this.props.service in Service:   ", this.props.service);
     return(
       <div style={styles.card} >
         <div style={styles.leftColumn}>
           <img src={logo} style={styles.thumbnail}/>
           <br/>
-          <div style={styles.price}>{services.price}</div>
+          <div style={styles.price}>{this.props.service.price}</div>
         </div>
         <div style={styles.rightColumn}>
-          <div>{services.serviceName}</div>
-          <div> by <a href="services.organizationName"> {services.organizationName}</a></div>
+          <div>{this.props.service.serviceName}</div>
+          <div> by <a href="this.props.service.organizationName"> {this.props.service.organizationName}</a></div>
           <br/>
-          <div style={styles.description}>{services.description}
+          <div style={styles.description}>{this.props.service.description}
             <button style={styles.button}>Provision Service</button>
           </div>
         </div>

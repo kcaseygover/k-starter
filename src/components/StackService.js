@@ -18,14 +18,14 @@ export default class StackService extends React.Component {
   }
 
   render() {
-    console.log("this.props.services in StackService:   ", this.props.services.length)
+    console.log("this.props.services in StackService:   ", this.props.services)
     return(
       <div style={styles.stackService}>
-        {this.props.services.map((e) =>{
+        {this.props.services.map((card) =>{
           return (
             <Service
-              key={e.id}
-              service={e}
+              key={card.id}
+              service={card}
             />
           )
         })}

@@ -117,31 +117,12 @@ const stylesHover = {
 }
 
 
-
-
-// const HoverService = ({props, onMouseOver, onMouseOut}) => {
-//   function over(e){
-//     e.target.style.transform='scale(1.2)';
-//     e.target.style.boxShadow='0px 0px 20px grey';
-//     // e.target.style.
-//     // e.target.style.
-//   }
-//   function out(e){
-//     e.target.style.transform='';
-//     e.target.style.boxShadow='';
-//     // e.target.style.
-//     // e.target.style.
-//   }
-
-
 export default class HoverService extends React.Component {
   constructor(props) {
     super(props);
     this.state = {hover: false};
   };
-  // toggleHover(){
-  //   this.setState({hover: !this.state.hover})
-  // };
+
   onMouseOver() {
     this.setState({hover: true})
   };
@@ -150,10 +131,9 @@ export default class HoverService extends React.Component {
     this.setState({hover: false})
   };
 
-
   render() {
     console.log("this is HoverService", this)
-    var popup = null;
+    let popup = null;
     if (this.state.hover == true) {
       popup = (
         <StyleHover/>
@@ -190,94 +170,6 @@ export default class HoverService extends React.Component {
 
 };
 
-// HoverService.propTypes = {
-//   // children: React.PropTypes.string,
-//   onMouseEnter: React.PropTypes.func,
-//   onMouseLeave: React.PropTypes.func,
-// };
-
-
-//export default HoverService;
-
-//styles for when card is in hover state:
-  //(card and description are amended)
-
-// const stylesHover = {
-//     card: {
-//     border: '1px solid #eee',
-//     borderRadius: 3,
-//     fontSize: 15,
-//     padding: '10px',
-//     margin: '0px 0px 10px 10px',
-//     float: 'left',
-//     maxWidth: 400,
-//     maxHeight: 300,
-//     display: 'flex',
-//     boxShadow: '0px 0px 20px grey'
-//   },
-//   description: {
-//     height: '7em',
-//     overflow: 'hidden',
-//     display: '-webkit-box',
-//     WebkitLineClamp: 6,
-//     WebkitBoxOrient: 'vertical',
-//   },
-//   thumbnail: {
-//     background: '#eeeeee',
-//     borderRadius: 3,
-//     height: '100px',
-//     width: '100px',
-//     marginRight: '0px',
-//     display: 'flex',
-//   },
-//   rightColumn: {
-//     display: 'block',
-//     float: 'right',
-//     padding: '10px',
-//   },
-//   leftColumn: {
-//     display: 'block',
-//     float: 'left',
-//   },
-//   price: {
-//     textAlign: 'center',
-//   },
-//   button: {
-//     color: 'white',
-//     backgroundColor: 'grey',
-//     borderRadius: 3,
-//     width: 200,
-//     height: 50,
-//     fontSize: 16,
-//     marginTop: 15,
-
-//   },
-// };
-
-
-// const StyleHover = (props) => {
-//   console.log("props in StyleHover:   ", props)
-
-// return(
-//   <div style={stylesHover.card} >
-//     <div style={stylesHover.leftColumn}>
-//       <img src={logo} style={stylesHover.thumbnail}/>
-//       <br/>
-//       <div style={stylesHover.price}>{data.price}</div>
-//     </div>
-
-//     <div style={stylesHover.rightColumn}>
-//       <div>{data.serviceName}</div>
-//       <div> by <a href="data.organizationName"> {data.organizationName}</a></div>
-//       <br/>
-//       <div style={stylesHover.description}>{data.description}
-//         <button style={stylesHover.button}>Provision Service</button>
-//       </div>
-//     </div>
-
-//   </div>
-//   )
-// };
 
 
 

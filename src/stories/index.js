@@ -10,12 +10,24 @@ import StackContainer from '../components/StackContainer';
 import HoverService from '../components/HoverService';
 import StyleHover from '../components/StyleHover';
 
-
-const data = {
-  serviceName: "Service Name",
-  organizationName: "Organization Name",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-  price: "$0-500/mo",
+const mockData = {
+  services:  [{
+    serviceName: "Service Name",
+    organizationName: "Organization Name",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
+    price: "$0-500/mo",
+  },
+  { serviceName: "Service Name2",
+    organizationName: "Organization Name2",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
+    price: "$0-500/mo",
+  },
+  ],
+  stack: {
+    stackName: "Stack Name",
+    stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
+    trending: "false",
+  },
 };
 
 storiesOf('Service', module)
@@ -30,10 +42,12 @@ storiesOf('Service', module)
   ));
 
 
-
 storiesOf('Stack', module)
   .add('default view', () => (
     <Stack />
+  ))
+  .add('with trending', () => (
+    <Stack/>
   ));
 
 storiesOf('StackService', module)
@@ -41,30 +55,13 @@ storiesOf('StackService', module)
     <StackService />
   ));
 
-const mockData = {
-  services:  [{
-    serviceName: "Service Name",
-    organizationName: "Organization Name",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-    price: "$0-500/mo",
-  },
-  { serviceName: "Service Name2",
-    organizationName: "Organization Name2",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-    price: "$0-500/mo",
-  },
-  ],
 
-  stack: {
-    stackName: "Stack Name",
-    stackDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
-    trending: "false",
-  },
-
-}
 
 storiesOf('StackContainer', module)
-  .add('default view', () => (
+  .add('2 cards with hover & 2 cards without', () => (
+    <StackContainer data={mockData} />
+  ))
+  .add('Trending Stack with 2 cards with hover & 2 cards without', () => (
     <StackContainer data={mockData} />
   ));
 
