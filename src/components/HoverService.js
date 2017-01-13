@@ -51,25 +51,26 @@ const styles = {
     height: 50,
     fontSize: 16,
     marginTop: 15,
-    visibility: 'hidden',
   },
 };
 const stylesHover = {
     card: {
-    border: '1px solid #eee',
-    borderRadius: 3,
-    fontSize: 15,
-    padding: '10px',
-    margin: '0px 0px 10px 10px',
-    float: 'left',
-    maxWidth: 400,
-    maxHeight: 300,
-    display: 'flex',
-    boxShadow: '0px 0px 20px grey'
+      zIndex: 10,
+      position: 'absolute',
+      border: '1px solid #eee',
+      borderRadius: 3,
+      fontSize: 15,
+      padding: '10px',
+      margin: '0px 0px 10px 10px',
+      float: 'left',
+      width: 450,
+      height: 300,
+      display: 'flex',
+      boxShadow: '0px 0px 20px grey',
+      top: -50,
+      left: -30,
   },
   description: {
-    height: '7em',
-    overflow: 'hidden',
     display: '-webkit-box',
     WebkitLineClamp: 6,
     WebkitBoxOrient: 'vertical',
@@ -96,12 +97,28 @@ export default class HoverService extends React.Component {
     let popup = null;
     if (this.state.hover == true) {
       popup = (
-        <StyleHover/>
+        <div style={stylesHover.card} >
+        <div style={styles.leftColumn}>
+          <img src={logo} style={styles.thumbnail}/>
+          <br/>
+          <div style={styles.price}>{this.props.service.price}</div>
+        </div>
+
+        <div style={styles.rightColumn}>
+          <div>{this.props.service.serviceName}</div>
+          <div> by <a href="{this.props.service.organizationName}"> {this.props.service.organizationName}</a></div>
+          <br/>
+          <div style={stylesHover.description}>{this.props.service.description}
+          <br/>
+            <button style={styles.button}>Provision Service</button>
+          </div>
+        </div>
+      </div>
       )
     }
 
     console.log("in HoverService:   ");
-        console.log("this.props.service in HoverService:   ", this.props.service);
+    console.log("this.props.service in HoverService:   ", this.props.service);
     return(
       <div style={styles.card}
       onMouseOver={this.onMouseOver.bind(this)}

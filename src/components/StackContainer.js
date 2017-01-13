@@ -18,6 +18,7 @@ const styles = {
 export default class StackContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
 
   }
 

@@ -31,6 +31,7 @@ const mockData = {
   },
 };
 //stories for individual service cards
+
 storiesOf('Service', module)
   .add('single service card default view', () => {
     const data = {
@@ -57,13 +58,7 @@ storiesOf('Service', module)
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis quis neque at hendrerit. Fusce vulputate libero non maximus posuere. Mauris sed mauris laoreet, faucibus neque a, rhoncus libero. Etiam fermentum dictum fermentum. Proin sollicitudin auctor nisi at dapibus. Suspendisse lectus erat, commodo eu blandit non, congue quis mauris. Mauris.",
     price: "$0-500/mo",
     };
-//below added style not working as is...
-//Need to move down and to the right to see whole card while in this story.
-    const style = {
-      top: '50px',
-      left: '50px',
-    };
-    return getHoverStyle(data, style);
+    return getHoverStyle(data);
   });
 
 function getItem(data) {
@@ -82,10 +77,9 @@ function getHover(data) {
     />
   )
 }
-function getHoverStyle(data, style) {
+function getHoverStyle(data) {
   return (
     <StyleHover
-    style={style}
     service={data}
     />
   )

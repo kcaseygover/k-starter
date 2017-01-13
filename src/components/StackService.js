@@ -35,11 +35,17 @@ export default class StackService extends React.Component {
             />
           )
         })}
+        {this.props.services.map((card) =>{
+          return (
+            <HoverService
+              key={card.id}
+              service={card}
+            />
+          )
+        })}
 
-        <HoverService/>
-        <HoverService/>
       </div>
     )
-}
+  }
 }
 
