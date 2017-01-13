@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../logo.svg';
 
+
+//styles for service cards
 const styles = {
     card: {
     border: '1px solid #eee',
@@ -50,8 +52,6 @@ const styles = {
     marginTop: 15,
   },
 };
-
-
 
 
 export default class Service extends React.Component {

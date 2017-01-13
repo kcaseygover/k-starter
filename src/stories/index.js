@@ -10,6 +10,7 @@ import StackContainer from '../components/StackContainer';
 import HoverService from '../components/HoverService';
 import StyleHover from '../components/StyleHover';
 
+//mock data
 const mockData = {
   services:  [{
     serviceName: "Service Name",

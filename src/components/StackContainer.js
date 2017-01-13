@@ -4,13 +4,16 @@ import Stack from './Stack';
 
 import logo from '../logo.svg';
 
+//StackContainer component. A stack is a collection of services represented by cards
 
+//styles for the container
 const styles = {
   container: {
     display: 'flex',
     margin: '40px',
   },
 };
+
 
 export default class StackContainer extends React.Component {
   constructor(props) {

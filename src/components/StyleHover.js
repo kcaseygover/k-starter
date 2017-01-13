@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from '../logo.svg';
 
+//purpose of this component is to show what the service card should look like when hover is activated
 //styles for when card is in hover state:
-  //(card and description are amended)
+  //(card and description are amended from original state)
 
 const stylesHover = {
     card: {
@@ -20,12 +21,8 @@ const stylesHover = {
     boxShadow: '0px 0px 20px grey',
     top: -50,
     left: -30,
-    // bottom: 10,
-    // right:10,
   },
   description: {
-    // height: '7em',
-    // overflow: 'hidden',
     display: '-webkit-box',
     WebkitLineClamp: 6,
     WebkitBoxOrient: 'vertical',
@@ -58,7 +55,6 @@ const stylesHover = {
     height: 50,
     fontSize: 16,
     marginTop: 15,
-
   },
 };
 const data = {
@@ -71,25 +67,24 @@ const data = {
 const StyleHover = (props) => {
   console.log("props in StyleHover:   ", props)
 
-return(
-  <div style={stylesHover.card} >
-    <div style={stylesHover.leftColumn}>
-      <img src={logo} style={stylesHover.thumbnail}/>
-      <br/>
-      <div style={stylesHover.price}>{data.price}</div>
-    </div>
+  return(
+    <div style={stylesHover.card} >
+      <div style={stylesHover.leftColumn}>
+        <img src={logo} style={stylesHover.thumbnail}/>
+        <br/>
+        <div style={stylesHover.price}>{data.price}</div>
+      </div>
 
-    <div style={stylesHover.rightColumn}>
-      <div>{data.serviceName}</div>
-      <div> by <a href="data.organizationName"> {data.organizationName}</a></div>
-      <br/>
-      <div style={stylesHover.description}>{data.description}
-      <br/>
-        <button style={stylesHover.button}>Provision Service</button>
+      <div style={stylesHover.rightColumn}>
+        <div>{data.serviceName}</div>
+        <div> by <a href="data.organizationName"> {data.organizationName}</a></div>
+        <br/>
+        <div style={stylesHover.description}>{data.description}
+        <br/>
+          <button style={stylesHover.button}>Provision Service</button>
+        </div>
       </div>
     </div>
-
-  </div>
   )
 };
 
