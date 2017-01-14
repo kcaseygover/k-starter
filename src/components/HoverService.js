@@ -99,10 +99,10 @@ export default class HoverService extends React.Component {
 
   render() {
     console.log("this is HoverService", this)
-    let popup = null;
+    let isHovering = null;
     //if mouse is hovering over a service card, style of card will change to variable "popup"
     if (this.state.hover == true) {
-      popup = (
+      isHovering = (
         <div style={stylesHover.card} >
         <div style={styles.leftColumn}>
           <img src={logo} style={styles.thumbnail}/>
@@ -130,28 +130,23 @@ export default class HoverService extends React.Component {
         onMouseOver={this.onMouseOver.bind(this)}
         onMouseOut={this.onMouseOut.bind(this)}
       >
-        {popup}
+        {isHovering}
         <div style={styles.leftColumn}>
           <img src={logo} style={styles.thumbnail}/>
           <br/>
           <div style={styles.price}>{this.props.service.price}</div>
         </div>
-
         <div style={styles.rightColumn}>
           <div>{this.props.service.serviceName}</div>
           <div> by <a href="this.props.service.organizationName"> {this.props.service.organizationName}</a></div>
-
           <br/>
           <div style={styles.description}>{this.props.service.description}
             <button style={styles.button}>Provision Service</button>
           </div>
-
         </div>
-
       </div>
     )
   }
-
 };
 
 
