@@ -5,7 +5,7 @@ import StyleHover from './StyleHover';
 
 //default Service card styles.
 const styles = {
-    card: {
+  card: {
     position: 'relative',
     border: '1px solid #eee',
     borderRadius: 3,
@@ -57,21 +57,22 @@ const styles = {
 
 //service card styles when hover activated.
 const stylesHover = {
-    card: {
-      zIndex: 10,
-      position: 'absolute',
-      border: '1px solid #eee',
-      borderRadius: 3,
-      fontSize: 15,
-      padding: '10px',
-      margin: '0px 0px 10px 10px',
-      float: 'left',
-      width: 450,
-      height: 300,
-      display: 'flex',
-      boxShadow: '0px 0px 20px grey',
-      top: -50,
-      left: -30,
+  card: {
+    backgroundColor: 'white',
+    zIndex: 10,
+    position: 'absolute',
+    border: '1px solid #eee',
+    borderRadius: 3,
+    fontSize: 15,
+    padding: '10px',
+    margin: '0px 0px 10px 10px',
+    float: 'left',
+    width: 450,
+    height: 300,
+    display: 'flex',
+    boxShadow: '0px 0px 20px grey',
+    top: -50,
+    left: -30,
   },
   description: {
     display: '-webkit-box',
@@ -104,22 +105,21 @@ export default class HoverService extends React.Component {
     if (this.state.hover == true) {
       isHovering = (
         <div style={stylesHover.card} >
-        <div style={styles.leftColumn}>
-          <img src={logo} style={styles.thumbnail}/>
-          <br/>
-          <div style={styles.price}>{this.props.service.price}</div>
-        </div>
-
-        <div style={styles.rightColumn}>
-          <div>{this.props.service.serviceName}</div>
-          <div> by <a href="{this.props.service.organizationName}"> {this.props.service.organizationName}</a></div>
-          <br/>
-          <div style={stylesHover.description}>{this.props.service.description}
-          <br/>
-            <button style={styles.button}>Provision Service</button>
+          <div style={styles.leftColumn}>
+            <img src={logo} style={styles.thumbnail}/>
+            <br/>
+            <div style={styles.price}>{this.props.service.price}</div>
+          </div>
+          <div style={styles.rightColumn}>
+            <div>{this.props.service.serviceName}</div>
+            <div> by <a href="{this.props.service.organizationName}"> {this.props.service.organizationName}</a></div>
+            <br/>
+            <div style={stylesHover.description}>{this.props.service.description}
+            <br/>
+              <button style={styles.button}>Provision Service</button>
+            </div>
           </div>
         </div>
-      </div>
       )
     }
 
