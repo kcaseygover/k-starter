@@ -1,27 +1,23 @@
 import React from 'react';
 import logo from '../logo.svg';
 
-//purpose of this component is to show what the service card should look like when hover is activated
-//styles for when card is in hover state:
-  //(card and description are amended from original state)
-
 //styles for when hover activated
 const stylesHover = {
-    card: {
-      zIndex: 10,
-      position: 'absolute',
-      border: '1px solid #eee',
-      borderRadius: 3,
-      fontSize: 15,
-      padding: '10px',
-      margin: '0px 0px 10px 10px',
-      float: 'left',
-      width: 450,
-      height: 300,
-      display: 'flex',
-      boxShadow: '0px 0px 20px grey',
-      top: -50,
-      left: -30,
+  card: {
+    zIndex: 10,
+    position: 'absolute',
+    border: '1px solid #eee',
+    borderRadius: 3,
+    fontSize: 15,
+    padding: '10px',
+    margin: '0px 0px 10px 10px',
+    float: 'left',
+    width: 450,
+    height: 300,
+    display: 'flex',
+    boxShadow: '0px 0px 20px grey',
+    top: -50,
+    left: -30,
   },
   description: {
     display: '-webkit-box',
@@ -58,13 +54,16 @@ const stylesHover = {
     marginTop: 15,
   },
 };
+
+//purpose of this component is to show what the service card should look like when hover is activated
+//styles for when card is in hover state:
+//(card and description are amended from original state)
 export default class StyleHover extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    console.log("this.props.service in StyleHover:   ", this.props.service)
 
     return(
       <div style={stylesHover.card} >
@@ -76,7 +75,7 @@ export default class StyleHover extends React.Component {
 
         <div style={stylesHover.rightColumn}>
           <div>{this.props.service.serviceName}</div>
-          <div> by <a href="{this.props.service.organizationName}"> {this.props.service.organizationName}</a></div>
+          <div> by <a href="https://getstorybook.io"> {this.props.service.organizationName}</a></div>
           <br/>
           <div style={stylesHover.description}>{this.props.service.description}
           <br/>
@@ -87,6 +86,10 @@ export default class StyleHover extends React.Component {
     )
   }
 };
+StyleHover.propTypes = {
+  props: React.PropTypes.object,
+};
+
 
 
 

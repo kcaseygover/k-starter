@@ -2,9 +2,6 @@ import React from 'react';
 import Service from './Service';
 import HoverService from './HoverService';
 
-//StackService component show the collections of service cards.
-
-
 //styles for wrapping div around the collection of cards
 const styles = {
   stackService: {
@@ -15,26 +12,16 @@ const styles = {
   },
 };
 
+//StackService component show the collections of service cards.
 export default class StackService extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    //Below in return, mapping through data to render individual service cards
-    //Hover state currently not activated in mapped cards
-    //rendering 2 cards in HoverState
-    console.log("this.props.services in StackService:   ", this.props.services)
+    //Below in return, mapping through data to render each service card.
     return(
       <div style={styles.stackService}>
-        {this.props.services.map((card) =>{
-          return (
-            <Service
-              key={card.id}
-              service={card}
-            />
-          )
-        })}
         {this.props.services.map((card) =>{
           return (
             <HoverService
@@ -43,9 +30,11 @@ export default class StackService extends React.Component {
             />
           )
         })}
-
       </div>
     )
   }
 }
+StackService.propTypes = {
+  props: React.PropTypes.object,
+};
 

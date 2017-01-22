@@ -61,7 +61,6 @@ export default class Service extends React.Component {
 
   render() {
 
-    console.log("this.props.service in Service:   ", this.props.service);
     return(
       <div style={styles.card} >
         <div style={styles.leftColumn}>
@@ -71,7 +70,7 @@ export default class Service extends React.Component {
         </div>
         <div style={styles.rightColumn}>
           <div>{this.props.service.serviceName}</div>
-          <div> by <a href="this.props.service.organizationName"> {this.props.service.organizationName}</a></div>
+          <div> by <a href="https://getstorybook.io"> {this.props.service.organizationName}</a></div>
           <br/>
           <div style={styles.description}>{this.props.service.description}
             <button style={styles.button}>Provision Service</button>
@@ -83,8 +82,7 @@ export default class Service extends React.Component {
 };
 
 Service.propTypes = {
-  // children: React.PropTypes.string,
-  onMouseOver: React.PropTypes.func,
+  props: React.PropTypes.object,
 };
 
 

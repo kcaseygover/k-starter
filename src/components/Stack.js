@@ -48,16 +48,12 @@ export default class Stack extends React.Component {
     if (this.props.stack.trending) {
       isTrending = (
         <p style={trendingStyle}>TRENDING</p>
-        )
+      )
     } else {
       isTrending = (
         <p></p>
-        )
+      )
     }
-
-    console.log("this is Stack", this)
-    console.log("this.props.stack in Stack:   ", this.props.stack  );
-    console.log("this.props.stack.trending", this.props.stack.trending)
 
     return (
       <div style={styles.stackDiv} >
@@ -76,6 +72,5 @@ export default class Stack extends React.Component {
 
 Stack.propTypes = {
   props: React.PropTypes.object,
-  children: React.PropTypes.string,
 };
 

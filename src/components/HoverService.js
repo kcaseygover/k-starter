@@ -99,12 +99,13 @@ export default class HoverService extends React.Component {
   };
 
   render() {
-    console.log("this is HoverService", this)
     let isHovering = null;
     //if mouse is hovering over a service card, style of card will change to variable "popup"
     if (this.state.hover == true) {
       isHovering = (
-        <div style={stylesHover.card} >
+        <div style={stylesHover.card}
+        onMouseOut={() => this.onMouseOut()}
+        >
           <div style={styles.leftColumn}>
             <img src={logo} style={styles.thumbnail}/>
             <br/>
@@ -112,7 +113,7 @@ export default class HoverService extends React.Component {
           </div>
           <div style={styles.rightColumn}>
             <div>{this.props.service.serviceName}</div>
-            <div> by <a href="{this.props.service.organizationName}"> {this.props.service.organizationName}</a></div>
+            <div> by <a href="https://getstorybook.io"> {this.props.service.organizationName}</a></div>
             <br/>
             <div style={stylesHover.description}>{this.props.service.description}
             <br/>
@@ -123,12 +124,9 @@ export default class HoverService extends React.Component {
       )
     }
 
-    console.log("in HoverService:   ");
-    console.log("this.props.service in HoverService:   ", this.props.service);
     return(
       <div style={styles.card}
-        onMouseOver={this.onMouseOver.bind(this)}
-        onMouseOut={this.onMouseOut.bind(this)}
+      onMouseOver={() => this.onMouseOver()}
       >
         {isHovering}
         <div style={styles.leftColumn}>
@@ -138,7 +136,7 @@ export default class HoverService extends React.Component {
         </div>
         <div style={styles.rightColumn}>
           <div>{this.props.service.serviceName}</div>
-          <div> by <a href="this.props.service.organizationName"> {this.props.service.organizationName}</a></div>
+          <div> by <a href="https://getstorybook.io"> {this.props.service.organizationName}</a></div>
           <br/>
           <div style={styles.description}>{this.props.service.description}
             <button style={styles.button}>Provision Service</button>
@@ -148,6 +146,14 @@ export default class HoverService extends React.Component {
     )
   }
 };
+
+Service.propTypes = {
+  onMouseOver: React.PropTypes.func,
+  onMouseOut: React.PropTypes.func,
+  props: React.PropTypes.object,
+};
+
+
 
 
 
