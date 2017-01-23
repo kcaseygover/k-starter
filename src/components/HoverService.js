@@ -101,7 +101,7 @@ export default class HoverService extends React.Component {
   render() {
     let isHovering = null;
     //if mouse is hovering over a service card, style of card will change to variable "popup"
-    if (this.state.hover == true) {
+    if (this.state.hover) {
       isHovering = (
         <div style={stylesHover.card}
         onMouseOut={() => this.onMouseOut()}

@@ -127,7 +127,7 @@ storiesOf('Stack', module)
   };
 
 storiesOf('StackContainer', module)
-  .add('Trending Stack with 2 cards with hover & 2 cards without hover', () => (
+  .add('Stack Container with Trending Stack', () => (
     <StackContainer data={mockData} />
   ));
 
